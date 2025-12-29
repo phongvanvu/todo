@@ -11,6 +11,7 @@ class TodoManager extends Component
     public $title = ''; // Lưu tiêu đề công việc đang nhập
     public $project_id = null; // Dự án đang chọn khi tạo task
     public $filter_project = null; // Lọc danh sách theo dự án
+    public $due_date = ''; // Biến lưu ngày hạn chót
 
     // Hàm thêm công việc
     public function addTask()
@@ -19,10 +20,11 @@ class TodoManager extends Component
 
         Task::create([
             'title' => $this->title,
-            'project_id' => $this->project_id // Lưu project_id
+            'project_id' => $this->project_id ?: null,
+            'due_date' => $this->due_date ?: null, // Lưu ngày hạn
         ]);
 
-        $this->title = '';
+        $this->reset(['title', 'due_date']); // Reset cả tiêu đề và ngày
     }
 
     // Hàm bật/tắt trạng thái hoàn thành

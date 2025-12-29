@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['title', 'is_completed', 'project_id'];
+    protected $fillable = ['title', 'is_completed', 'project_id', 'due_date'];
+
+    // Ép kiểu due_date về đối tượng Date để dễ hiển thị
+    protected $casts = [
+        'due_date' => 'date',
+    ];
 
     public function project() {
         return $this->belongsTo(Project::class);
