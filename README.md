@@ -1,59 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+📝 Danh Sách Công Việc - Laravel 12
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Danh Sách Công Việc là một ứng dụng quản lý nhiệm vụ cá nhân tối giản, được xây dựng bằng framework Laravel. Dự án lấy cảm hứng từ giao diện sạch sẽ của Todoist, giúp người dùng ghi chép nhanh và hoàn thành công việc hiệu quả mỗi ngày.
+✨ Tính năng chính
 
-## About Laravel
+    Quản lý nhiệm vụ: Thêm, đánh dấu hoàn thành và xóa công việc nhanh chóng.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+    Giao diện tối giản (Minimalist UI): Tập trung tối đa vào nội dung, loại bỏ các thành phần gây xao nhãng.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    Phản hồi thông minh: Hiển thị trạng thái trống (Empty State) sinh động và thông báo xác nhận khi xóa.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    Tương thích di động: Giao diện co giãn tốt (Responsive) trên mọi kích thước màn hình.
 
-## Learning Laravel
+    Cơ sở dữ liệu nhẹ: Sử dụng SQLite, không cần cài đặt SQL Server phức tạp.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+🛠 Công nghệ sử dụng
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    Backend: Laravel 12 (Yêu cầu PHP 8.3+)
 
-## Laravel Sponsors
+    Frontend: Tailwind CSS (Giao diện hiện đại, tinh tế)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    Database: SQLite (Lưu trữ tệp tin cục bộ)
 
-### Premium Partners
+    Font chữ: Inter (Chuẩn thiết kế ứng dụng hiện đại)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+🚀 Hướng dẫn cài đặt
 
-## Contributing
+Để chạy dự án này trên máy tính của bạn (đặc biệt là môi trường Windows/Laragon), hãy thực hiện các bước sau:
+1. Yêu cầu hệ thống
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    PHP >= 8.3
 
-## Code of Conduct
+    Composer
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    Laragon hoặc XAMPP
 
-## Security Vulnerabilities
+2. Các bước thiết lập
+Bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 1. Tải dự án về máy
+git clone https://github.com/ten-cua-ban/todo-laravel.git
+cd todo-laravel
 
-## License
+# 2. Cài đặt các thư viện cần thiết
+composer install
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# 3. Tạo tệp cấu hình môi trường
+copy .env.example .env
+
+# 4. Tạo tệp cơ sở dữ liệu SQLite (Dành cho Windows CMD)
+type nul > database/database.sqlite
+
+# 5. Cấu hình .env
+# Mở file .env và cập nhật dòng:
+# DB_CONNECTION=sqlite
+# (Xóa các dòng DB_DATABASE, DB_USERNAME khác)
+
+# 6. Chạy Migration để tạo cấu trúc bảng
+php artisan migrate
+
+# 7. Khởi chạy ứng dụng
+php artisan serve
+
+Sau khi hoàn tất, hãy mở trình duyệt và truy cập: http://127.0.0.1:8000
+🎨 Tư duy thiết kế UX
+
+Dự án này chú trọng vào trải nghiệm "tiện và nhanh":
+
+    Màu sắc: Sử dụng tông đỏ thương hiệu (#dc4c3e) tạo cảm giác năng động.
+
+    Tương tác: Các nút bấm có hiệu ứng chuyển màu mềm mại, nút xóa chỉ xuất hiện khi di chuột qua để giữ sự tinh giản.
+
+    Năng suất: Hộp nhập liệu nằm ngay đầu trang để người dùng có thể lưu lại ý tưởng ngay lập tức.
+
+📅 Lộ trình phát triển (Roadmap)
+
+    [x] Hoàn thiện chức năng Thêm/Sửa/Xóa cơ bản.
+
+    [x] Việt hóa toàn bộ giao diện.
+
+    [ ] Tích hợp Livewire để ứng dụng chạy mượt mà không cần tải lại trang (AJAX).
+
+    [ ] Thêm tính năng Phân loại theo Dự án.
+
+    [ ] Gắn nhãn Mức độ ưu tiên (Priority labels).
+
+📄 Giấy phép
+
+Dự án này được phát hành dưới giấy phép MIT. Bạn hoàn toàn có thể sử dụng và phát triển thêm cho mục đích học tập hoặc cá nhân.
