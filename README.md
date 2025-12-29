@@ -1,89 +1,101 @@
-📝 Danh Sách Công Việc Pro (Laravel Livewire Edition)
+📝 Danh Sách Công Việc Pro
 
-Danh Sách Công Việc là một ứng dụng quản lý nhiệm vụ hiện đại, mượt mà được xây dựng trên nền tảng Laravel 12 và Livewire. Ứng dụng mô phỏng trải nghiệm người dùng cao cấp của Todoist, cho phép tương tác thời gian thực mà không cần tải lại trang.
-✨ Tính năng đã hoàn thiện
+Danh Sách Công Việc Pro là một ứng dụng quản lý nhiệm vụ cá nhân mạnh mẽ nhưng tối giản, được xây dựng trên nền tảng Laravel 12. Ứng dụng mang lại khả năng tương tác tức thì nhờ công nghệ Single Page Application (SPA).
+✨ Tính năng nổi bật
 
-    Trải nghiệm Single Page (SPA): Sử dụng Laravel Livewire để Thêm, Xóa, và Hoàn thành công việc ngay lập tức (Zero Page Reload).
+    Trải nghiệm SPA mượt mà: Sử dụng Laravel Livewire 3 để xử lý mọi thao tác (Thêm, Xóa, Hoàn thành) mà không cần tải lại trang.
 
-    Phân loại theo Dự án: * Tổ chức công việc theo các danh mục như: Công việc, Cá nhân, Học tập...
+    Hệ thống Quản lý Dự án (Projects): * Phân loại công việc theo danh mục chuyên sâu.
 
-        Bộ lọc thông minh: Xem tất cả hoặc lọc theo từng dự án cụ thể.
+        Tùy chỉnh màu sắc nhận diện cho từng dự án.
 
-    Giao diện chuẩn:
+        Giao diện quản lý dự án trực quan (Thêm/Sửa/Xóa ngay tại chỗ).
 
-        Thiết kế tối giản với font chữ Inter sắc nét.
+    Bộ lọc thông minh: Chuyển đổi nhanh giữa việc xem tất cả nhiệm vụ hoặc lọc theo từng dự án cụ thể chỉ với một cú click.
 
-        Hiệu ứng Hover và chuyển cảnh mượt mà.
+    Giao diện tinh tế (Clean UI):
 
-        Trạng thái trống (Empty State) thân thiện.
+        Sử dụng Tailwind CSS và font chữ Inter hiện đại.
 
-    Cơ sở dữ liệu: Sử dụng SQLite gọn nhẹ, phù hợp cho triển khai nhanh và phát triển cá nhân.
+        Hệ thống biểu tượng (Favicon) đồng bộ.
+
+        Hiệu ứng phản hồi thị giác khi hoàn thành công việc.
+
+    Cơ sở dữ liệu tối ưu: Sử dụng SQLite tích hợp, giúp triển khai dự án nhanh chóng mà không cần cấu hình server phức tạp.
 
 🛠 Công nghệ sử dụng
 
-    Framework: Laravel 12.x
+    Backend: Laravel 12 (PHP 8.3+)
 
-    Tương tác Real-time: Laravel Livewire 3.x
+    Frontend Logic: Laravel Livewire 3
 
-    Giao diện: Tailwind CSS (Responsive Design)
-
-    Ngôn ngữ: PHP 8.3+
+    Styling: Tailwind CSS & Google Fonts (Inter)
 
     Database: SQLite
 
-🚀 Hướng dẫn thiết lập nhanh
-1. Cài đặt môi trường
+🚀 Hướng dẫn cài đặt nhanh
 
-Đảm bảo bạn đã cài đặt PHP 8.3+, Composer và Laragon (hoặc môi trường tương đương).
-2. Các bước triển khai
+Dành cho môi trường Windows (Laragon/XAMPP):
+1. Chuẩn bị
+
+    PHP >= 8.3
+
+    Composer
+
+2. Các bước thiết lập
 Bash
 
-# Clone dự án
-git clone https://github.com/ten-cua-ban/todo-laravel.git
-cd todo-laravel
+# 1. Clone dự án
+git clone https://github.com/username/todoist-laravel.git
+cd todoist-laravel
 
-# Cài đặt các thư viện
+# 2. Cài đặt Dependencies
 composer install
 
-# Cấu hình môi trường
+# 3. Cấu hình môi trường
 copy .env.example .env
 
-# Tạo file database (Dành cho Windows CMD)
+# 4. Khởi tạo Database SQLite
 type nul > database/database.sqlite
 
-# Cấu hình .env thành: DB_CONNECTION=sqlite
-# Chạy Migration
+# 5. Cấu hình .env
+# Mở file .env và cập nhật các dòng sau:
+# DB_CONNECTION=sqlite
+# (Xóa các dòng DB_DATABASE, DB_USERNAME, DB_PASSWORD dư thừa)
+
+# 6. Thực thi Migration
 php artisan migrate
 
-# Tạo dữ liệu mẫu cho Dự án (Tùy chọn)
-php artisan tinker
->>> App\Models\Project::create(['name' => 'Công việc']);
->>> App\Models\Project::create(['name' => 'Học tập']);
->>> exit
-
-# Chạy Server
+# 7. Khởi chạy ứng dụng
 php artisan serve
 
-🎨 Điểm nhấn về UX (Trải nghiệm người dùng)
+Truy cập: http://127.0.0.1:8000 hoặc http://todo.test (nếu dùng Laragon).
+🎨 Kiến trúc dự án (UX/UI)
 
-    Luồng xử lý: Người dùng chọn dự án -> Nhập tên việc -> Nhấn Enter. Hệ thống tự động gán dự án và hiển thị công việc mới ngay lập tức.
+Dự án được xây dựng dựa trên triết lý "Năng suất thông qua sự tối giản":
 
-    Xác nhận an toàn: Tích hợp wire:confirm tiếng Việt cho hành động xóa, giúp tránh mất dữ liệu ngoài ý muốn.
+    Hộp thư đến (Inbox): Điểm xuất phát cho mọi ý tưởng, dễ dàng gán dự án ngay khi tạo.
 
-    Phản hồi thị giác: Các task hoàn thành được gạch ngang và làm mờ theo đúng nguyên lý thiết kế "Dopamine Hit", giúp người dùng cảm thấy hài lòng khi xong việc.
+    Màu sắc dự án: Sử dụng bảng màu chuẩn để người dùng nhận diện công việc theo thị giác nhanh hơn.
 
-📅 Lộ trình tiếp theo (Roadmap)
+    Tính nhất quán: Favicon và giao diện được thiết kế đồng bộ với tông đỏ chủ đạo #dc4c3e.
+
+📅 Lộ trình phát triển (Roadmap)
 
     [x] Tích hợp Livewire (SPA).
 
-    [x] Hệ thống quản lý và lọc theo Dự án.
+    [x] Quản lý dự án đa năng và hệ thống màu sắc.
+
+    [x] Bộ lọc công việc theo dự án thời gian thực.
+
+    [x] Hệ thống Favicon và Layout chuẩn.
 
     [ ] Thêm tính năng Hạn chót (Due Date) với lịch chọn ngày.
 
-    [ ] Chế độ Dark Mode tự động.
-
     [ ] Tính năng Kéo thả (Drag & Drop) để sắp xếp thứ tự ưu tiên.
+
+    [ ] Chế độ Dark Mode tự động dựa trên hệ thống.
 
 📄 Giấy phép
 
-Dự án phát hành dưới giấy phép MIT.
+Dự án được phát hành dưới giấy phép MIT. Bạn có thể tự do sử dụng cho mục đích cá nhân hoặc làm nền tảng để phát triển các ứng dụng thương mại.

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Project;
 use App\Models\Task;
 use Livewire\Component;
 
@@ -48,7 +49,7 @@ class TodoManager extends Component
 
         return view('livewire.todo-manager', [
             'tasks' => $query->latest()->get(),
-            'projects' => \App\Models\Project::all()
-        ]);
+            'projects' => Project::all()
+        ])->layout('layouts.app');
     }
 }
